@@ -1,0 +1,64 @@
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <string>
+#include <sstream>
+#include <cstdlib> 
+#include <ctime> 
+#include <stdlib.h>
+using namespace std;
+
+
+int main()
+{
+	string Array[10];
+	
+	ifstream inFile;
+	
+	
+	inFile.open("F:\\Riot Games\\datafile.txt");
+		
+	if (!inFile) {
+		cerr << "Unable to open file datafile.txt";
+		exit(1);   // call system to stop
+	}
+
+	for (int i = 0; i < 10; ++i) {
+
+		inFile >> Array[i];
+		
+	}
+	
+	int i;
+	srand((unsigned)time(0));
+	i = rand() % 10;
+	
+	string theWord = Array[i];
+	string finishedWord = "_____";
+	char letter;
+	
+	for (int x = 0; x < 10;) {
+		
+		cin >> letter;
+
+		if (theWord.find(letter) != std::string::npos)
+		{
+			int y = theWord.find_first_of(letter);
+			finishedWord[y] = letter;
+		}
+		else
+			x += 1;
+
+		cout << finishedWord << " You have " << 10 - x << " lives left" << endl;
+		if (finishedWord == theWord) {
+			cout << " Congratulations you guessed the word right!";
+			break;
+	}
+		
+	}
+	
+	
+		
+		
+	return 0;
+}

@@ -1,1 +1,1 @@
-# cpp-shit-project
+Program picks a random word from a .txt document and takes user input characters and checks whether or not the word has that character. Keeps taking input until the whole word is finished and you have 10 "lives" to do it. It's kind of like hangman but easier to make.
